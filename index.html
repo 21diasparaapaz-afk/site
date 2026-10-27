@@ -3,8 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Início · 21 Dias para a Paz</title>
-<meta name="description" content="Aplicativo de bem-estar emocional para ansiedade e tristeza.">
+<title>Apoio para ansiedade, pânico e tristeza · 21 Dias para a Paz</title>
+<meta name="description" content="Aplicativo de apoio ao bem-estar emocional: 21 dias de cuidado para ansiedade, pânico e tristeza, com ajuda na hora da crise, acessível a pessoas cegas e sem internet.">
+<link rel="icon" type="image/png" href="/imagens/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="21 Dias para a Paz">
+<meta property="og:title" content="Apoio para ansiedade, pânico e tristeza · 21 Dias para a Paz">
+<meta property="og:description" content="Aplicativo de apoio ao bem-estar emocional: 21 dias de cuidado para ansiedade, pânico e tristeza, com ajuda na hora da crise, acessível a pessoas cegas e sem internet.">
+<meta property="og:image" content="https://21diasparaapaz.com.br/imagens/compartilhar.jpg">
+<meta property="og:locale" content="pt_BR">
 <style>
 :root { --fundo:#FAF6EE; --card:#EFE6D5; --dourado:#D4A359; --escuro:#332A15; --texto:#4A4231; --destaque:#8C6D23; }
 @media (prefers-color-scheme: dark) {
@@ -27,16 +34,75 @@ a { color: var(--destaque); }
 footer { margin-top: 40px; font-size: 16px; text-align:center; color: var(--destaque); }
 ul { padding-left: 24px; }
 li { margin-bottom: 8px; }
+.capa { text-align:center; padding: 8px 0 4px; }
+.capa img { width: 112px; height: 112px; border-radius: 50%; }
+.capa h1 { font-size: 36px; margin-top: 12px; }
+.capa .sub { font-size: 20px; color: var(--escuro); margin: 8px auto 16px; max-width: 560px; }
+.selo { display:inline-block; padding: 10px 18px; border-radius: 24px; background: var(--card); border: 1px solid var(--dourado); color: var(--escuro); font-weight: 700; }
+.passos { display:grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 12px; }
+.passo { background: var(--card); border-radius: 16px; padding: 18px; }
+.passo .n { display:inline-block; width: 36px; height: 36px; border-radius: 50%; background: var(--dourado); color: #332A15; font-weight: 700; text-align:center; line-height: 36px; }
+.passo h3 { color: var(--escuro); font-size: 19px; margin: 10px 0 4px; }
+.passo p { margin: 0; font-size: 17px; }
+.galeria { display:flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 2px 14px; margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
+.galeria img { flex: 0 0 auto; width: 230px; height: auto; border-radius: 14px; scroll-snap-align: start; box-shadow: 0 2px 10px rgba(51,42,21,.12); }
+.dica { font-size: 15px; color: var(--destaque); margin-top: 0; }
 </style>
 </head>
 <body>
 <main>
 <header><div class="marca">21 Dias para a Paz</div></header>
 <nav aria-label="Páginas"><a href="/" class="atual" aria-current="page">Início</a><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos de uso</a></nav>
+<section class="capa">
+<img src="/imagens/icone.png" alt="" width="112" height="112">
 <h1>21 Dias para a Paz</h1>
-<p class="quadro">Um caminho de 21 dias para cuidar da ansiedade e da tristeza, um dia de cada vez. Acessível a pessoas cegas, sem anúncios, sem assinatura e com total privacidade.</p>
-<p>O aplicativo está em fase de testes e em breve estará disponível na Google Play.</p>
-<p>Em sofrimento intenso, ligue <strong>188</strong> (CVV, 24 horas, gratuito). Em risco imediato ou emergência, ligue <strong>192</strong> (SAMU).</p>
+<p class="sub">Apoio para quem vive com ansiedade, pânico ou tristeza: um caminho de 21 dias, um dia de cada vez, no seu ritmo.</p>
+<span class="selo">Em breve na Google Play</span>
+</section>
+
+<h2>Como funciona</h2>
+<div class="passos">
+<div class="passo"><span class="n">1</span><h3>Você diz como está</h3><p>Cada dia começa com uma pergunta simples: como seu coração está chegando aqui hoje?</p></div>
+<div class="passo"><span class="n">2</span><h3>Recebe uma prática para o seu momento</h3><p>Quatro etapas curtas: respiração, chá ou frio, aroma e uma frase para repetir.</p></div>
+<div class="passo"><span class="n">3</span><h3>Acompanha a sua evolução</h3><p>Ao fim de cada dia, você marca quanto melhorou e vê o seu caminho crescer.</p></div>
+</div>
+
+<h2>Veja o aplicativo</h2>
+<div class="galeria">
+<img src="/imagens/1_menu.jpg" alt="Menu do aplicativo: botão Preciso de ajuda, seção Para você e o aviso do próximo dia" width="540" height="960" loading="lazy">
+<img src="/imagens/2_como_voce_esta.jpg" alt="Pergunta do dia: como seu coração está chegando aqui hoje, com 5 opções" width="540" height="960" loading="lazy">
+<img src="/imagens/3_pratica_do_dia.jpg" alt="Prática do dia: etapa de respiração com o botão Respirar comigo" width="540" height="960" loading="lazy">
+<img src="/imagens/4_respirar_comigo.jpg" alt="Respirar comigo: círculo que guia a respiração, com vibração" width="540" height="960" loading="lazy">
+<img src="/imagens/5_preciso_de_ajuda.jpg" alt="Tela Preciso de ajuda: pessoa de confiança, WhatsApp, 188 e 192" width="540" height="960" loading="lazy">
+<img src="/imagens/6_cha_e_aroma.jpg" alt="Etapas de chá e de aroma da prática do dia" width="540" height="960" loading="lazy">
+<img src="/imagens/7_acalmar_5_4_3_2_1.jpg" alt="Acalmar agora: exercício 5-4-3-2-1 pelos sentidos" width="540" height="960" loading="lazy">
+<img src="/imagens/8_evolucao.jpg" alt="Gráfico da evolução da jornada e lista dos dias" width="540" height="960" loading="lazy">
+</div>
+<p class="dica">Deslize para o lado para ver todas as telas.</p>
+
+<h2>Ajuda na hora em que você precisa</h2>
+<ul>
+<li>O botão <strong>Preciso de ajuda</strong> aparece em todas as telas.</li>
+<li>Ligue ou avise pelo WhatsApp a sua <strong>pessoa de confiança</strong>, com a sua localização, se você quiser.</li>
+<li>Acesso direto ao <strong>188</strong> (CVV) e ao <strong>192</strong> (SAMU).</li>
+<li>Para atravessar um momento difícil: o exercício <strong>5-4-3-2-1</strong>, o seu <strong>plano de segurança</strong> e a sua <strong>caixa da esperança</strong>, com frases e fotos que lembram por que vale a pena seguir.</li>
+<li>O aplicativo nunca liga nem envia nada sozinho: quem decide é sempre você.</li>
+</ul>
+
+<h2>Feito para todos</h2>
+<ul>
+<li>Totalmente acessível a pessoas cegas, com o leitor de tela do Android (TalkBack).</li>
+<li>Letras grandes, cores calmas e bom contraste.</li>
+<li>Respiração guiada também pela vibração do celular.</li>
+</ul>
+
+<h2>Sua privacidade em primeiro lugar</h2>
+<p>Sem cadastro, sem anúncios e sem internet. Tudo o que você registra fica guardado só no seu celular. Leia a <a href="/privacidade/">Política de Privacidade</a>.</p>
+
+<h2>Quer ajudar a testar?</h2>
+<p>Estamos convidando pessoas com celular Android para o teste oficial antes do lançamento. Se quiser participar, escreva para <a href="mailto:21diasparaapaz@gmail.com">21diasparaapaz@gmail.com</a>.</p>
+
+<p class="quadro">O 21 Dias para a Paz é um apoio ao bem-estar e não substitui o cuidado de um profissional de saúde. Em sofrimento intenso, ligue <strong>188</strong> (CVV, 24 horas, gratuito). Em risco imediato ou emergência, ligue <strong>192</strong> (SAMU).</p>
 <footer>21 Dias para a Paz · Contato: <a href="mailto:21diasparaapaz@gmail.com">21diasparaapaz@gmail.com</a></footer>
 </main>
 </body>
