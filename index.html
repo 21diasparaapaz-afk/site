@@ -2,110 +2,434 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Apoio para ansiedade, pânico, depressão e tristeza · 21 Dias para a Paz</title>
-<meta name="description" content="Aplicativo de apoio ao bem-estar emocional: 21 dias de cuidado para ansiedade, pânico, depressão e tristeza, com ajuda na hora da crise, acessível a pessoas cegas e sem internet.">
+<meta name="description" content="Aplicativo de apoio ao bem-estar emocional: 21 dias de cuidado para ansiedade, pânico, depressão e tristeza, com ajuda na hora da crise, feito para o leitor de tela TalkBack e sem precisar de internet.">
 <link rel="icon" type="image/png" href="/imagens/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="21 Dias para a Paz">
 <meta property="og:title" content="Apoio para ansiedade, pânico, depressão e tristeza · 21 Dias para a Paz">
-<meta property="og:description" content="Aplicativo de apoio ao bem-estar emocional: 21 dias de cuidado para ansiedade, pânico, depressão e tristeza, com ajuda na hora da crise, acessível a pessoas cegas e sem internet.">
+<meta property="og:description" content="Aplicativo de apoio ao bem-estar emocional: 21 dias de cuidado para ansiedade, pânico, depressão e tristeza, com ajuda na hora da crise, feito para o leitor de tela TalkBack e sem precisar de internet.">
 <meta property="og:image" content="https://21diasparaapaz.com.br/imagens/compartilhar.jpg">
 <meta property="og:locale" content="pt_BR">
 <style>
-:root { --fundo:#FAF6EE; --card:#EFE6D5; --dourado:#D4A359; --escuro:#332A15; --texto:#4A4231; --destaque:#8C6D23; }
-@media (prefers-color-scheme: dark) {
-  :root { --fundo:#1E1A12; --card:#2C261A; --dourado:#D4A359; --escuro:#F3EBDD; --texto:#E2D8C6; --destaque:#E0B86E; }
+@font-face { font-family:"Atkinson Hyperlegible"; font-style:normal; font-weight:400; font-display:swap; src:url(/fontes/AtkinsonHyperlegible-9Bt23C1KxN.woff2) format("woff2"); }
+@font-face { font-family:"Atkinson Hyperlegible"; font-style:normal; font-weight:700; font-display:swap; src:url(/fontes/AtkinsonHyperlegible-9Bt73C1KxN.woff2) format("woff2"); }
+@font-face { font-family:"Bricolage Grotesque"; font-style:normal; font-weight:500; font-display:swap; src:url(/fontes/BricolageGrotesque-3y9K6as8bT.woff2) format("woff2"); }
+@font-face { font-family:"Bricolage Grotesque"; font-style:normal; font-weight:700; font-display:swap; src:url(/fontes/BricolageGrotesque-3y9K6as8bT.woff2) format("woff2"); }
+/* Conceito: a página atravessa da noite ao amanhecer, como a jornada; a respiração do app é o coração da capa. */
+:root {
+  --noite:#1E1A12; --noite2:#2C261A; --areia:#F3EBDD; --areia2:#E2D8C6; --ouro-claro:#E0B86E;
+  --fundo:#FAF6EE; --card:#EFE6D5; --dourado:#D4A359; --escuro:#332A15; --corpo:#4A4231; --destaque:#8C6D23; --linha:#E2D3B6;
+  --titulo:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --texto:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
 }
-* { box-sizing: border-box; }
-body { margin:0; background:var(--fundo); color:var(--texto); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size:18px; line-height:1.65; }
-main { max-width: 760px; margin: 0 auto; padding: 24px 16px 56px; }
-header { text-align:center; padding: 8px 0 12px; }
-header .marca { font-size: 15px; letter-spacing: 2px; color: var(--destaque); font-weight: 700; text-transform: uppercase; }
-h1 { color: var(--escuro); font-size: 32px; line-height:1.25; margin: 8px 0 4px; }
-h2 { color: var(--destaque); font-size: 22px; margin: 32px 0 8px; }
-.data { color: var(--destaque); margin-top: 0; }
-.quadro { background: var(--card); border-left: 5px solid var(--dourado); padding: 16px 18px; border-radius: 12px; color: var(--escuro); }
-strong { color: var(--escuro); }
-nav { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin: 8px 0 20px; }
-nav a, .botao { display:inline-block; padding: 12px 20px; border-radius: 24px; background: var(--dourado); color: #332A15; font-weight: 700; text-decoration: none; }
-nav a.atual { background: var(--card); color: var(--escuro); border: 1px solid var(--dourado); }
-a { color: var(--destaque); }
-footer { margin-top: 40px; font-size: 16px; text-align:center; color: var(--destaque); }
-ul { padding-left: 24px; }
-li { margin-bottom: 8px; }
-.capa { text-align:center; padding: 8px 0 4px; }
-.capa img { width: 112px; height: 112px; border-radius: 50%; }
-.capa h1 { font-size: 36px; margin-top: 12px; }
-.capa .sub { font-size: 20px; color: var(--escuro); margin: 8px auto 16px; max-width: 560px; }
-.selo { display:inline-block; padding: 10px 18px; border-radius: 24px; background: var(--card); border: 1px solid var(--dourado); color: var(--escuro); font-weight: 700; }
-.passos { display:grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 12px; }
-.passo { background: var(--card); border-radius: 16px; padding: 18px; }
-.passo .n { display:inline-block; width: 36px; height: 36px; border-radius: 50%; background: var(--dourado); color: #332A15; font-weight: 700; text-align:center; line-height: 36px; }
-.passo h3 { color: var(--escuro); font-size: 19px; margin: 10px 0 4px; }
-.passo p { margin: 0; font-size: 17px; }
-.galeria { display:flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px 2px 14px; margin: 0 -16px; padding-left: 16px; padding-right: 16px; }
-.galeria img { flex: 0 0 auto; width: 230px; height: auto; border-radius: 14px; scroll-snap-align: start; box-shadow: 0 2px 10px rgba(51,42,21,.12); }
-.dica { font-size: 15px; color: var(--destaque); margin-top: 0; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:84px; }
+body { margin:0; background:var(--fundo); color:var(--corpo); font-family:var(--texto); font-size:18px; line-height:1.6; }
+body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--noite); }
+img { display:block; max-width:100%; height:auto; }
+a { color:inherit; }
+:focus-visible { outline:3px solid var(--ouro-claro); outline-offset:3px; border-radius:6px; }
+h1,h2,h3 { font-family:var(--titulo); margin:0; text-wrap:balance; font-weight:700; letter-spacing:-.015em; }
+h2 { font-size:clamp(32px,5vw,50px); line-height:1.08; color:var(--escuro); }
+h3 { font-size:21px; line-height:1.25; color:var(--escuro); }
+p { margin:0; }
+.faixa { padding-left:max(20px,env(safe-area-inset-left,0px)); padding-right:max(20px,env(safe-area-inset-right,0px)); }
+.miolo { max-width:1120px; margin-inline:auto; }
+.etiqueta { font-weight:700; font-size:15px; letter-spacing:.09em; text-transform:uppercase; color:var(--destaque); }
+.intro { max-width:58ch; font-size:19px; }
+
+/* Barra */
+.barra { position:sticky; top:env(safe-area-inset-top,0px); z-index:9; background:rgba(30,26,18,.94); backdrop-filter:blur(10px); color:var(--areia); }
+.barra .miolo { display:flex; align-items:center; gap:18px; min-height:76px; }
+.marca { display:flex; align-items:center; gap:10px; font-family:var(--titulo); font-weight:700; font-size:18px; text-decoration:none; min-width:0; line-height:1.15; }
+.marca img { width:52px; height:52px; border-radius:50%; flex:none; box-shadow:0 0 0 2px rgba(212,163,89,.55); }
+.menu { display:flex; gap:22px; margin-left:auto; }
+.menu a { text-decoration:none; font-weight:600; font-size:16px; color:var(--areia2); padding:8px 0; }
+.menu a:hover { color:#fff; }
+.btn-ajuda { flex:none; display:inline-flex; align-items:center; min-height:44px; padding:8px 18px; border-radius:99px; background:var(--dourado); color:var(--escuro); font-weight:700; font-size:16px; text-decoration:none; white-space:nowrap; }
+.btn-ajuda:hover { background:var(--ouro-claro); }
+@media (max-width:820px) { .menu { display:none; } .btn-ajuda { margin-left:auto; padding-inline:14px; } }
+
+/* Capa */
+.capa { background:var(--noite); color:var(--areia2); position:relative; overflow:hidden; padding-block:clamp(44px,7vw,84px) 0; }
+.capa-grade { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:48px; align-items:center; position:relative; }
+.capa h1 { font-size:clamp(42px,6.8vw,76px); line-height:1.02; color:var(--areia); }
+.capa h1 em { font-style:normal; color:var(--ouro-claro); }
+.capa .sub { margin-top:22px; font-size:clamp(19px,2.2vw,22px); max-width:34em; }
+.acoes { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; align-items:center; }
+.btn { display:inline-flex; align-items:center; justify-content:center; min-height:54px; padding:12px 26px; border-radius:99px; background:var(--dourado); color:var(--escuro); font-weight:700; text-decoration:none; font-size:18px; border:0; font-family:inherit; cursor:pointer; }
+.btn:hover { background:var(--ouro-claro); }
+.btn.vazado { background:transparent; color:var(--areia); box-shadow:inset 0 0 0 2px #6B5C3F; }
+.btn.vazado:hover { box-shadow:inset 0 0 0 2px var(--ouro-claro); background:transparent; }
+.selo { font-size:16px; font-weight:600; color:var(--ouro-claro); margin-top:16px; }
+
+/* O logotipo é o sol da capa e respira no ritmo do app */
+.palco { display:grid; justify-items:center; gap:12px; min-width:0; }
+.anel { position:relative; width:min(500px,86vw); max-width:100%; aspect-ratio:1; display:grid; place-items:center; }
+.halo { position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle,rgba(246,215,155,.5) 0%,rgba(212,163,89,.26) 46%,transparent 70%); transform:scale(.8); transition:transform 4s ease-in-out; pointer-events:none; }
+.aro { position:absolute; inset:7%; border-radius:50%; border:2px solid rgba(224,184,110,.75); box-shadow:0 0 0 12px rgba(212,163,89,.08); transform:scale(.84); transition:transform 4s ease-in-out; pointer-events:none; }
+.logo-capa { position:relative; width:66%; height:auto; aspect-ratio:1; object-fit:cover; border-radius:50%; box-shadow:0 22px 60px rgba(0,0,0,.5); transition:transform 4s ease-in-out; }
+.fala { position:absolute; bottom:3%; left:50%; transform:translateX(-50%); display:flex; align-items:baseline; gap:10px; white-space:nowrap; background:var(--noite2); color:var(--areia); border:1px solid #5a4c33; border-radius:99px; padding:8px 20px; font-family:var(--titulo); font-weight:700; font-size:19px; }
+.fala span { color:var(--ouro-claro); font-size:24px; font-variant-numeric:tabular-nums; min-width:1ch; text-align:center; }
+.pausar { background:none; border:0; color:var(--areia2); font:inherit; font-size:16px; font-weight:700; text-decoration:underline; text-underline-offset:4px; cursor:pointer; min-height:44px; padding:6px 12px; }
+.nome-capa { font-family:var(--titulo); font-weight:700; font-size:clamp(20px,2.4vw,25px); color:var(--ouro-claro); margin-bottom:14px; }
+
+/* Fatos */
+.fatos { position:relative; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; margin-top:clamp(40px,6vw,68px); padding-block:26px 34px; border-top:1px solid #4a3f2a; }
+.fatos b { display:block; font-family:var(--titulo); font-size:clamp(24px,3vw,32px); color:var(--areia); line-height:1.1; }
+.fatos span { display:block; font-size:16px; margin-top:4px; }
+.amanhecer { height:clamp(120px,16vw,190px); background:radial-gradient(70% 150% at 50% 112%, #F6D79B 0%, rgba(212,163,89,.9) 34%, rgba(140,109,35,.55) 62%, transparent 86%), linear-gradient(var(--noite),#3b2f19 42%,#b98f4c 80%,var(--fundo)); }
+
+@media (max-width:820px) {
+  .capa-grade { grid-template-columns:minmax(0,1fr); gap:26px; }
+  .palco { order:-1; }
+  .anel { width:min(320px,80vw); }
+  .fala { font-size:17px; padding:6px 16px; }
+  .fala span { font-size:21px; }
+  .fatos { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+/* Experimente */
+.secao { padding-block:clamp(60px,8vw,104px); }
+.experimente { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(30px,5vw,64px); align-items:start; }
+.cabeca { display:grid; gap:14px; }
+.opcoes { display:grid; gap:10px; margin-top:26px; }
+.opcao { display:flex; align-items:center; gap:14px; width:100%; min-height:62px; padding:12px 16px; text-align:left; font:inherit; font-size:17px; font-weight:600; line-height:1.3; color:var(--escuro); background:var(--card); border:2px solid transparent; border-radius:16px; cursor:pointer; transition:background .2s,border-color .2s; }
+.opcao:hover { border-color:var(--dourado); }
+.opcao[aria-pressed="true"] { background:var(--escuro); color:var(--areia); }
+.opcao svg { flex:none; width:26px; height:26px; }
+.resultado { position:sticky; top:96px; background:var(--noite); color:var(--areia2); border-radius:28px; padding:clamp(24px,3.5vw,38px); min-width:0; }
+.resultado .etiqueta { color:var(--ouro-claro); }
+.resultado h3 { font-size:clamp(28px,3.6vw,38px); color:var(--areia); margin-top:6px; }
+.etapas { list-style:none; margin:24px 0 0; padding:0; display:grid; gap:0; }
+.etapas li { display:grid; grid-template-columns:44px minmax(0,1fr); gap:14px; padding-bottom:20px; position:relative; }
+.etapas li:not(:last-child)::before { content:""; position:absolute; left:21px; top:44px; bottom:0; width:2px; background:#4a3f2a; }
+.etapas .ic { width:44px; height:44px; border-radius:50%; background:var(--noite2); display:grid; place-items:center; color:var(--ouro-claro); }
+.etapas .ic svg { width:22px; height:22px; }
+.etapas small { display:block; font-size:15px; font-weight:600; color:var(--ouro-claro); }
+.etapas strong { display:block; color:var(--areia); font-size:19px; font-weight:600; line-height:1.3; }
+.mantra { font-family:var(--titulo); font-size:21px !important; line-height:1.25 !important; }
+.aviso-peito { background:var(--noite2); padding:12px 14px; border-radius:12px; margin-top:20px; font-size:16px; color:var(--areia); }
+.nota { margin-top:6px; font-size:16px; }
+@media (max-width:820px) { .experimente { grid-template-columns:minmax(0,1fr); } .resultado { position:static; } }
+
+/* Telas */
+.telas { background:var(--card); }
+.trilho { display:flex; gap:clamp(18px,3vw,34px); overflow-x:auto; scroll-snap-type:x proximity; padding:34px max(20px,calc((100vw - 1120px)/2)) 22px; scrollbar-width:thin; scrollbar-color:var(--dourado) transparent; }
+.tela { flex:0 0 auto; width:min(250px,68vw); scroll-snap-align:center; margin:0; display:grid; gap:14px; }
+.tela img { border-radius:30px; border:7px solid var(--escuro); width:100%; aspect-ratio:1/2; object-fit:cover; box-shadow:0 18px 40px rgba(51,42,21,.22); }
+.tela figcaption b { display:block; font-size:18px; color:var(--escuro); line-height:1.25; }
+.tela figcaption span { font-size:16px; display:block; line-height:1.35; margin-top:2px; }
+.dica { font-size:16px; font-weight:700; color:var(--destaque); }
+.setas { display:flex; flex-wrap:wrap; gap:10px 12px; align-items:center; }
+.seta { min-height:48px; padding:8px 20px; border-radius:99px; border:2px solid var(--dourado); background:var(--fundo); color:var(--escuro); font:inherit; font-size:16px; font-weight:700; cursor:pointer; }
+.seta:hover { background:var(--dourado); }
+
+/* Caminho */
+.semanas { display:grid; gap:26px; margin-top:34px; }
+.semana h3 { font-size:17px; color:var(--destaque); font-family:var(--texto); letter-spacing:0; }
+.dias { list-style:none; padding:0; margin:10px 0 0; display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:10px; }
+.dias li { border-radius:16px; padding:12px 12px 14px; min-height:112px; display:grid; align-content:start; gap:4px; }
+.dias b { font-family:var(--titulo); font-size:25px; line-height:1; }
+.dias span { font-size:15.5px; line-height:1.22; font-weight:600; overflow-wrap:anywhere; hyphens:auto; }
+.s1 li { background:var(--noite); color:var(--areia); }
+.s1 b { color:var(--ouro-claro); }
+.s2 li { background:#D4A359; color:var(--escuro); }
+.s3 li { background:#F3E4C4; color:var(--escuro); }
+.s3 b { color:var(--destaque); }
+.pontas { display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:24px; font-size:17px; }
+.pontas b { color:var(--escuro); }
+@media (max-width:960px) { .dias { grid-template-columns:repeat(auto-fill,minmax(128px,1fr)); } .dias li { min-height:92px; } }
+
+/* Ajuda */
+.ajuda { background:var(--noite); color:var(--areia2); }
+.ajuda h2 { color:var(--areia); }
+.ajuda .etiqueta { color:var(--ouro-claro); }
+.ajuda-grade { display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr); gap:clamp(30px,6vw,76px); align-items:center; }
+.numeros { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:28px; }
+.numero { display:block; background:var(--dourado); color:var(--escuro); border-radius:20px; padding:16px 20px; text-decoration:none; }
+.numero:hover { background:var(--ouro-claro); }
+.numero b { display:block; font-family:var(--titulo); font-size:clamp(40px,6vw,58px); line-height:1; }
+.numero span { display:block; font-size:16px; font-weight:600; line-height:1.3; margin-top:4px; }
+.ferramentas { list-style:none; padding:0; margin:28px 0 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px 26px; }
+.ferramentas b { display:block; color:var(--areia); font-size:18px; line-height:1.3; }
+.ferramentas span { display:block; font-size:16px; line-height:1.4; margin-top:2px; }
+.decide { margin-top:26px; color:var(--areia); font-weight:600; }
+.ajuda-img img { border-radius:32px; border:8px solid #0E0C07; max-width:300px; margin-inline:auto; box-shadow:0 24px 60px rgba(0,0,0,.5); }
+@media (max-width:820px) { .ajuda-grade { grid-template-columns:minmax(0,1fr); } .ferramentas { grid-template-columns:minmax(0,1fr); } .ajuda-img { order:2; } }
+
+/* Dois lados */
+.lados { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(36px,6vw,80px); }
+.lado { display:grid; gap:18px; align-content:start; min-width:0; }
+.lado h2 { font-size:clamp(30px,4vw,40px); }
+.itens { list-style:none; padding:0; margin:0; display:grid; gap:16px; }
+.itens li { display:grid; grid-template-columns:30px minmax(0,1fr); gap:12px; }
+.itens svg { width:26px; height:26px; color:var(--destaque); margin-top:2px; }
+.itens b { color:var(--escuro); }
+.lado a { color:var(--destaque); font-weight:700; display:inline-block; padding-block:9px; }
+@media (max-width:820px) { .lados { grid-template-columns:minmax(0,1fr); } }
+
+/* Convite e rodapé */
+.convite { background:var(--dourado); color:var(--escuro); }
+.convite-grade { display:flex; flex-wrap:wrap; gap:22px 48px; align-items:center; justify-content:space-between; padding-block:clamp(38px,5vw,60px); }
+.convite h2 { font-size:clamp(28px,4vw,42px); }
+.convite p { max-width:44ch; margin-top:8px; }
+.btn.escuro { background:var(--escuro); color:var(--areia); overflow-wrap:anywhere; }
+.btn.escuro:hover { background:#1E1A12; }
+.iphone { background:var(--card); color:var(--corpo); }
+.iphone-grade { display:flex; flex-wrap:wrap; gap:22px 48px; align-items:center; justify-content:space-between; padding-block:clamp(38px,5vw,60px); }
+.iphone h2 { font-size:clamp(28px,4vw,42px); }
+.iphone p { max-width:52ch; margin-top:8px; }
+.iphone-acao { display:grid; gap:10px; justify-items:start; font-size:16px; min-width:0; overflow-wrap:anywhere; }
+.aviso { padding-block:30px; }
+.aviso p { max-width:80ch; color:var(--escuro); font-size:17px; }
+.rodape { background:var(--noite); color:var(--areia2); padding-block:28px; font-size:16px; }
+.rodape .miolo { display:flex; flex-wrap:wrap; gap:10px 26px; justify-content:space-between; }
+.assina { display:flex; align-items:center; gap:14px; font-family:var(--titulo); font-weight:700; font-size:20px; color:var(--areia); }
+.assina img { width:72px; height:72px; border-radius:50%; }
+.rodape .miolo { align-items:center; }
+.rodape nav { align-items:center; display:flex; flex-wrap:wrap; gap:8px 22px; }
+.rodape a { color:var(--areia); font-weight:600; display:inline-block; padding-block:9px; }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .halo,.bola { transition:none; } }
 </style>
 </head>
 <body>
-<main>
-<header><div class="marca">21 Dias para a Paz</div></header>
-<nav aria-label="Páginas"><a href="/" class="atual" aria-current="page">Início</a><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos de uso</a></nav>
-<section class="capa">
-<img src="/imagens/icone.png" alt="" width="112" height="112">
-<h1>21 Dias para a Paz</h1>
-<p class="sub">Apoio para quem vive com ansiedade, pânico, depressão ou tristeza: um caminho de 21 dias, um dia de cada vez, no seu ritmo.</p>
-<span class="selo">Em breve na Google Play</span>
+<header class="barra faixa">
+  <div class="miolo">
+    <a class="marca" href="#inicio"><img src="/imagens/logo.jpg" alt="" width="52" height="52">21 Dias para a Paz</a>
+    <nav class="menu" aria-label="Seções"><a href="#experimente">Como funciona</a><a href="#telas">Telas</a><a href="#caminho">Os 21 dias</a><a href="#privacidade">Privacidade</a></nav>
+    <a class="btn-ajuda" href="#ajuda">Preciso de ajuda</a>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="capa faixa">
+  <div class="miolo">
+    <div class="capa-grade">
+      <div>
+        <p class="nome-capa">21 Dias para a Paz</p>
+        <h1>Quando a mente não para, <em>comece por uma respiração.</em></h1>
+        <p class="sub">Apoio para quem vive com ansiedade, pânico, depressão ou tristeza: 21 dias de cuidado, um de cada vez, e ajuda à mão na hora mais difícil.</p>
+        <div class="acoes">
+          <a class="btn" href="#experimente">Ver como funciona</a>
+          <a class="btn vazado" href="#teste">Participar do teste</a>
+        </div>
+        <p class="selo">Em breve na Google Play, para celulares Android. <a href="#iphone">Usa iPhone?</a></p>
+      </div>
+      <div class="palco">
+        <div class="anel" role="img" aria-label="Logotipo do 21 Dias para a Paz: uma pessoa meditando dentro de um círculo dourado, com folhas verdes. Em volta, um círculo guia a respiração: puxe o ar por 4 segundos, segure por 2 e solte por 4.">
+          <div class="halo" id="halo"></div>
+          <div class="aro" id="aro"></div>
+          <img class="logo-capa" id="logo" src="/imagens/logo.jpg" alt="" width="640" height="640">
+          <div class="fala" aria-hidden="true"><b id="bola-txt">Puxe o ar</b><span id="bola-num">4</span></div>
+        </div>
+        <button class="pausar" id="pausar" type="button">Pausar a respiração</button>
+      </div>
+    </div>
+    <div class="fatos">
+      <div><b>21 dias</b><span>um de cada vez, no seu ritmo</span></div>
+      <div><b>105 práticas</b><span>para o momento que você vive</span></div>
+      <div><b>Sem cadastro</b><span>e sem anúncios</span></div>
+      <div><b>Sem internet</b><span>funciona mesmo sem conexão</span></div>
+    </div>
+  </div>
+</section>
+<div class="amanhecer" aria-hidden="true"></div>
+
+<section class="secao faixa" id="experimente">
+  <div class="miolo experimente">
+    <div>
+      <div class="cabeca">
+        <span class="etiqueta">Experimente aqui</span>
+        <h2>Como seu coração está chegando hoje?</h2>
+        <p class="intro">O app começa todo dia com esta pergunta. Toque numa resposta e veja a prática que ela abre no Dia 1.</p>
+      </div>
+      <div class="opcoes" id="opcoes"></div>
+    </div>
+    <div class="resultado" id="resultado" aria-live="polite"></div>
+  </div>
 </section>
 
-<h2>Como funciona</h2>
-<div class="passos">
-<div class="passo"><span class="n">1</span><h3>Você diz como está</h3><p>Cada dia começa com uma pergunta simples: como seu coração está chegando aqui hoje?</p></div>
-<div class="passo"><span class="n">2</span><h3>Recebe uma prática para o seu momento</h3><p>Quatro etapas curtas: respiração, chá ou frio, aroma e uma frase para repetir.</p></div>
-<div class="passo"><span class="n">3</span><h3>Acompanha a sua evolução</h3><p>Ao fim de cada dia, você marca quanto melhorou e vê o seu caminho crescer.</p></div>
-</div>
-<p>E o cuidado continua depois dos 21 dias: a <strong>Prática livre</strong> traz uma das 105 práticas para o momento que você estiver vivendo, sempre que quiser.</p>
+<section class="telas" id="telas">
+  <div class="faixa" style="padding-top:clamp(56px,7vw,92px)">
+    <div class="miolo cabeca">
+      <span class="etiqueta">Veja por dentro</span>
+      <h2>Simples até nos dias em que nada parece simples.</h2>
+      <p class="intro">Letras grandes, poucas escolhas e uma saída escrita em todas as telas.</p>
+    </div>
+  </div>
+  <div class="trilho" id="trilho" tabindex="0" aria-label="Telas do aplicativo. Deslize para o lado.">
+    <figure class="tela"><img src="/imagens/menu.jpg" alt="Menu do aplicativo com o botão Preciso de ajuda, o aviso do próximo dia e a seção Para você" loading="lazy" width="600" height="1200"><figcaption><b>Seu lugar de volta</b><span>O menu mostra o próximo passo.</span></figcaption></figure>
+    <figure class="tela"><img src="/imagens/estados.jpg" alt="Pergunta do dia com 5 opções de como a pessoa está" loading="lazy" width="600" height="1200"><figcaption><b>Você diz como está</b><span>Cinco respostas, sem certo nem errado.</span></figcaption></figure>
+    <figure class="tela"><img src="/imagens/pratica.jpg" alt="Prática do dia com a etapa de respiração" loading="lazy" width="600" height="1200"><figcaption><b>Uma prática para hoje</b><span>Quatro etapas, de 10 a 20 minutos.</span></figcaption></figure>
+    <figure class="tela"><img src="/imagens/respirar.jpg" alt="Tela Respirar comigo com o círculo que guia a respiração" loading="lazy" width="600" height="1200"><figcaption><b>Respirar comigo</b><span>Pelo círculo e pela vibração.</span></figcaption></figure>
+    <figure class="tela"><img src="/imagens/cha_aroma.jpg" alt="Etapas de chá e de aroma da prática" loading="lazy" width="600" height="1200"><figcaption><b>Chá, frio e aroma</b><span>Com os cuidados escritos.</span></figcaption></figure>
+    <figure class="tela"><img src="/imagens/ajuda.jpg" alt="Tela Preciso de ajuda com pessoa de confiança, 188 e 192" loading="lazy" width="600" height="1200"><figcaption><b>Ajuda a um toque</b><span>Em todas as telas.</span></figcaption></figure>
+    <figure class="tela"><img src="/imagens/aterramento.jpg" alt="Tela do exercício 5-4-3-2-1 pelos sentidos" loading="lazy" width="600" height="1200"><figcaption><b>Acalmar agora</b><span>O 5-4-3-2-1, passo a passo.</span></figcaption></figure>
+    <figure class="tela"><img src="/imagens/evolucao.jpg" alt="Gráfico da evolução dos dias concluídos e a lista dos dias" loading="lazy" width="600" height="1200"><figcaption><b>Seu caminho</b><span>Quanto cada dia ajudou você.</span></figcaption></figure>
+  </div>
+  <div class="faixa" style="padding-bottom:clamp(50px,6vw,80px)"><div class="miolo setas"><button class="seta" id="tela-ant" type="button">← Tela anterior</button><button class="seta" id="tela-prox" type="button">Próxima tela →</button><span class="dica">Ou deslize para o lado.</span></div></div>
+</section>
 
-<h2>Veja o aplicativo</h2>
-<div class="galeria">
-<img src="/imagens/1_menu.jpg" alt="Menu do aplicativo: botão Preciso de ajuda, seção Para você e o aviso do próximo dia" width="540" height="960" loading="lazy">
-<img src="/imagens/2_como_voce_esta.jpg" alt="Pergunta do dia: como seu coração está chegando aqui hoje, com 5 opções" width="540" height="960" loading="lazy">
-<img src="/imagens/3_pratica_do_dia.jpg" alt="Prática do dia: etapa de respiração com o botão Respirar comigo" width="540" height="960" loading="lazy">
-<img src="/imagens/4_respirar_comigo.jpg" alt="Respirar comigo: círculo que guia a respiração, com vibração" width="540" height="960" loading="lazy">
-<img src="/imagens/5_preciso_de_ajuda.jpg" alt="Tela Preciso de ajuda: pessoa de confiança, WhatsApp, 188 e 192" width="540" height="960" loading="lazy">
-<img src="/imagens/6_cha_e_aroma.jpg" alt="Etapas de chá e de aroma da prática do dia" width="540" height="960" loading="lazy">
-<img src="/imagens/7_acalmar_5_4_3_2_1.jpg" alt="Acalmar agora: exercício 5-4-3-2-1 pelos sentidos" width="540" height="960" loading="lazy">
-<img src="/imagens/8_evolucao.jpg" alt="Gráfico da evolução da jornada e lista dos dias" width="540" height="960" loading="lazy">
-</div>
-<p class="dica">Deslize para o lado para ver todas as telas.</p>
+<section class="secao faixa" id="caminho">
+  <div class="miolo">
+    <div class="cabeca">
+      <span class="etiqueta">O caminho</span>
+      <h2>Vinte e um dias, cada um com um tema.</h2>
+      <p class="intro">O próximo dia abre à meia-noite. Se você parar por um tempo, ele continua aqui, sem cobrança.</p>
+    </div>
+    <div class="semanas">
+      <div class="semana s1"><h3>Semana 1: acalmar o corpo e a mente</h3><ol class="dias" start="1">
+        <li><b>1</b><span>A Arte da Pausa</span></li><li><b>2</b><span>A Respiração Consciente</span></li><li><b>3</b><span>Soltando o Controle</span></li><li><b>4</b><span>O Poder da Presença</span></li><li><b>5</b><span>A Desaceleração Física</span></li><li><b>6</b><span>A Mente Silenciosa</span></li><li><b>7</b><span>O Poder da Gratidão</span></li></ol></div>
+      <div class="semana s2"><h3>Semana 2: cuidar de como você se trata</h3><ol class="dias" start="8">
+        <li><b>8</b><span>O Limite Saudável</span></li><li><b>9</b><span>Perdão e Libertação</span></li><li><b>10</b><span>O Centro da Calma</span></li><li><b>11</b><span>A Autocompaixão</span></li><li><b>12</b><span>Silenciando o Juiz</span></li><li><b>13</b><span>Redirecionando o Foco</span></li><li><b>14</b><span>Soltando Expectativas</span></li></ol></div>
+      <div class="semana s3"><h3>Semana 3: firmar o que você construiu</h3><ol class="dias" start="15">
+        <li><b>15</b><span>Respiração Plena</span></li><li><b>16</b><span>Paz nas Relações</span></li><li><b>17</b><span>O Silêncio Restaurador</span></li><li><b>18</b><span>A Arte da Paciência</span></li><li><b>19</b><span>A Força do Recomeço</span></li><li><b>20</b><span>Consolidando a Paz</span></li><li><b>21</b><span>A Conquista da Paz</span></li></ol></div>
+    </div>
+    <div class="pontas"><span><b>Antes:</b> Dia 0, Acolhimento e Boas-Vindas.</span><span><b>Depois:</b> Dia 22, O Abraço de Despedida, e a Prática livre, sempre que quiser.</span></div>
+  </div>
+</section>
 
-<h2>Ajuda na hora em que você precisa</h2>
-<ul>
-<li>O botão <strong>Preciso de ajuda</strong> aparece em todas as telas.</li>
-<li>Ligue ou avise pelo WhatsApp a sua <strong>pessoa de confiança</strong>, com a sua localização, se você quiser.</li>
-<li>Acesso direto ao <strong>188</strong> (CVV) e ao <strong>192</strong> (SAMU).</li>
-<li>Para atravessar um momento difícil: <strong>Respirar agora</strong>, com vibração, <strong>Frio no rosto</strong>, o exercício <strong>5-4-3-2-1</strong>, o seu <strong>plano de segurança</strong> e a sua <strong>caixa da esperança</strong>, com frases e fotos que lembram por que vale a pena seguir.</li>
-<li>O aplicativo nunca liga nem envia nada sozinho: quem decide é sempre você.</li>
-</ul>
+<section class="ajuda secao faixa" id="ajuda">
+  <div class="miolo ajuda-grade">
+    <div>
+      <div class="cabeca">
+        <span class="etiqueta">Se está difícil agora</span>
+        <h2>Você não precisa atravessar isso sem ajuda.</h2>
+      </div>
+      <div class="numeros">
+        <a class="numero" href="tel:188"><b>188</b><span>CVV: apoio emocional, 24 horas, gratuito</span></a>
+        <a class="numero" href="tel:192"><b>192</b><span>SAMU: risco imediato ou emergência</span></a>
+      </div>
+      <p class="decide" style="margin-top:34px">Dentro do app, o botão Preciso de ajuda aparece em todas as telas:</p>
+      <ul class="ferramentas" style="margin-top:16px">
+        <li><b>Pessoa de confiança</b><span>Ligue ou avise pelo WhatsApp, com a localização se você quiser.</span></li>
+        <li><b>Respirar agora</b><span>O círculo e a vibração guiam você.</span></li>
+        <li><b>Frio no rosto e 5-4-3-2-1</b><span>Para voltar ao agora, com os cuidados escritos.</span></li>
+        <li><b>Plano de segurança e caixa da esperança</b><span>O que você preparou num dia mais calmo.</span></li>
+        <li><b>Onde buscar atendimento</b><span>Posto de saúde, CAPS e clínicas de universidade.</span></li>
+      </ul>
+      <p class="decide">O app nunca liga nem envia nada sozinho. Quem decide é você.</p>
+    </div>
+    <div class="ajuda-img"><img src="/imagens/ajuda.jpg" alt="Tela Preciso de ajuda do aplicativo" loading="lazy" width="600" height="1200"></div>
+  </div>
+</section>
 
-<h2>Feito para todos</h2>
-<ul>
-<li>Totalmente acessível a pessoas cegas, com o leitor de tela do Android (TalkBack).</li>
-<li>Letras grandes, cores calmas e bom contraste.</li>
-<li>Respiração guiada também pela vibração do celular.</li>
-<li>Botão de som em todas as telas, para ligar ou desligar a música.</li>
-</ul>
+<section class="secao faixa">
+  <div class="miolo lados">
+    <div class="lado">
+      <span class="etiqueta">Feito para todos</span>
+      <h2>Também para quem não enxerga a tela.</h2>
+      <ul class="itens">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12s3.5-6.5 9-6.5S21 12 21 12s-3.5 6.5-9 6.5S3 12 3 12Z"/><path d="M4 20 20 4"/></svg><span><b>Feito para o TalkBack,</b> o leitor de tela do Android.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18 9 6l5 12M6 14h6M15 18l3-7 3 7M16 16h4"/></svg><span><b>Letras grandes</b> e bom contraste.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="4" width="8" height="16" rx="2"/><path d="M4 9v6M20 9v6"/></svg><span><b>Respiração pela vibração,</b> sem precisar olhar.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l5 4V6L7 10H4Z"/><path d="M16 9.5a4 4 0 0 1 0 5"/></svg><span><b>Botão de som</b> em todas as telas, para ligar ou desligar a música.</span></li>
+      </ul>
+    </div>
+    <div class="lado" id="privacidade">
+      <span class="etiqueta">Sua privacidade</span>
+      <h2>O que você sente é assunto seu.</h2>
+      <ul class="itens">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6M4 4l16 16"/></svg><span><b>Sem cadastro e sem anúncios.</b></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span><b>Fica no seu celular.</b> Ninguém da nossa equipe tem acesso ao que você registra.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14"/></svg><span><b>Você apaga quando quiser,</b> nas próprias telas do app.</span></li>
+      </ul>
+      <p><a href="/privacidade/">Ler a Política de Privacidade</a> &nbsp; <a href="/termos/">Termos de uso</a></p>
+    </div>
+  </div>
+</section>
 
-<h2>Sua privacidade em primeiro lugar</h2>
-<p>Sem cadastro, sem anúncios e funciona sem internet. Tudo o que você registra fica guardado no seu celular, o aplicativo não envia nada para ninguém e você pode apagar os seus registros quando quiser. Leia a <a href="/privacidade/">Política de Privacidade</a>.</p>
+<section class="convite faixa" id="teste">
+  <div class="miolo convite-grade">
+    <div><h2>Quer ajudar a testar?</h2><p>Estamos convidando pessoas com celular Android para o teste antes do lançamento.</p></div>
+    <a class="btn escuro" href="mailto:21diasparaapaz@gmail.com">21diasparaapaz@gmail.com</a>
+  </div>
+</section>
 
-<h2>Quer ajudar a testar?</h2>
-<p>Estamos convidando pessoas com celular Android para o teste oficial antes do lançamento. Se quiser participar, escreva para <a href="mailto:21diasparaapaz@gmail.com">21diasparaapaz@gmail.com</a>.</p>
+<section class="iphone faixa" id="iphone">
+  <div class="miolo iphone-grade">
+    <div><h2>Usa iPhone?</h2><p>Por enquanto, o aplicativo é só para Android. Se você gostaria de ter no iPhone, escreva para nós. Seu pedido nos ajuda a decidir, e avisaremos você se a versão para iPhone sair.</p></div>
+    <div class="iphone-acao"><a class="btn escuro" href="mailto:21diasparaapaz@gmail.com?subject=Quero%20no%20iPhone&amp;body=Quero%20receber%20um%20aviso%20quando%20o%20app%20estiver%20dispon%C3%ADvel%20para%20iPhone.">Quero no iPhone</a><span>Ou escreva para 21diasparaapaz@gmail.com</span></div>
+  </div>
+</section>
 
-<p class="quadro">O 21 Dias para a Paz é um apoio ao bem-estar e não substitui o cuidado de um profissional de saúde. Em sofrimento intenso, ligue <strong>188</strong> (CVV, 24 horas, gratuito). Em risco imediato ou emergência, ligue <strong>192</strong> (SAMU).</p>
-<footer>21 Dias para a Paz · Contato: <a href="mailto:21diasparaapaz@gmail.com">21diasparaapaz@gmail.com</a></footer>
+<section class="aviso faixa">
+  <div class="miolo"><p>O 21 Dias para a Paz é um apoio ao bem-estar e não substitui o cuidado de um profissional de saúde. Em sofrimento intenso, ligue <b>188</b> (CVV, 24 horas, gratuito). Em risco imediato ou emergência, ligue <b>192</b> (SAMU).</p></div>
+</section>
 </main>
+
+<footer class="rodape faixa">
+  <div class="miolo"><span class="assina"><img src="/imagens/logo.jpg" alt="" width="72" height="72" loading="lazy">21 Dias para a Paz</span><nav aria-label="Rodapé"><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos de uso</a><span>21diasparaapaz@gmail.com</span></nav></div>
+</footer>
+
+<script>
+(function () {
+  var ic = {
+    nuvem: '<path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 11a3.5 3.5 0 0 1-.5 7H7Z"/>',
+    gota: '<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.500 6-11 6-11Z"/>',
+    ar: '<path d="M3 9h11a3 3 0 1 0-3-3M3 14h15a3 3 0 1 1-3 3M3 19h6"/>',
+    sol: '<circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.600 5.600 7 7M17 17l1.400 1.400M5.600 18.400 7 17M17 7l1.400-1.400"/>',
+    sorriso: '<circle cx="12" cy="12" r="9"/><path d="M8 14c1 1.500 2.300 2.200 4 2.200s3-.7 4-2.200M9 9.500v.01M15 9.500v.01"/>',
+    xicara: '<path d="M5 10h12v5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5v-5ZM17 11h1.500a2.500 2.500 0 0 1 0 5H17M9 3v3M13 3v3"/>',
+    frio: '<path d="M12 3v18M4.500 7.500l15 9M19.500 7.500l-15 9"/>',
+    folha: '<path d="M5 19C5 10 11 5 20 4c0 9-5 15-13 15M5 19l8-8"/>',
+    fala: '<path d="M4 5h16v11H9l-5 4V5Z"/>'
+  };
+  function svg(n) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ic[n] + '</svg>'; }
+  var estados = [
+    { r: 'Sinto um aperto no peito, sufoco ou angústia forte', i: 'nuvem', t: 'Para acalmar o aperto no peito', e: [['Respiração', 'Suspiro cíclico', 'ar'], ['Frio', 'Água gelada no rosto', 'frio'], ['Aroma', 'Pomada de mentol no lenço', 'folha']], m: 'Eu paro. Eu respiro. Este momento vai passar.', a: 'Antes de tudo, o app avisa quando a dor no peito pede o 192.' },
+    { r: 'Sinto uma tristeza profunda, esgotamento ou vazio', i: 'gota', t: 'Para acolher a tristeza', e: [['Respiração', 'Pela barriga', 'ar'], ['Chá', 'Camomila', 'xicara'], ['Aroma', 'Óleo essencial de laranja-doce', 'folha']], m: 'Eu posso parar. Eu mereço este descanso.' },
+    { r: 'Sinto medo, agitação na mente ou inquietação no corpo', i: 'ar', t: 'Para aquietar a mente', e: [['Respiração', '4-2-4', 'ar'], ['Chá', 'Maracujá (folhas)', 'xicara'], ['Aroma', 'Óleo essencial de lavanda', 'folha']], m: 'Eu não preciso resolver tudo agora. Agora, eu só respiro.' },
+    { r: 'Estou buscando me fortalecer e prevenir crises', i: 'sol', t: 'Para se fortalecer', e: [['Respiração', 'Coerência 5-5', 'ar'], ['Chá', 'Capim-limão', 'xicara'], ['Aroma', 'Óleo essencial de eucalipto', 'folha']], m: 'A cada pausa que eu faço, eu fico mais forte.' },
+    { r: 'Sinto gratidão e quero aprofundar minha paz interior', i: 'sorriso', t: 'Para aprofundar a paz', e: [['Respiração', 'Contagem de 1 a 10', 'ar'], ['Chá', 'Erva-doce', 'xicara'], ['Aroma', 'Capim-limão fresco', 'folha']], m: 'Eu agradeço por este instante de paz que eu criei para mim.' }
+  ];
+  var caixa = document.getElementById('opcoes'), res = document.getElementById('resultado');
+  function mostrar(k) {
+    var s = estados[k];
+    Array.prototype.forEach.call(caixa.children, function (b, j) { b.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
+    res.innerHTML = '<span class="etiqueta">Dia 1 · A Arte da Pausa</span><h3>' + s.t + '</h3>' +
+      (s.a ? '<p class="aviso-peito">' + s.a + '</p>' : '') +
+      '<ol class="etapas">' + s.e.map(function (x) { return '<li><span class="ic">' + svg(x[2]) + '</span><span><small>' + x[0] + '</small><strong>' + x[1] + '</strong></span></li>'; }).join('') +
+      '<li><span class="ic">' + svg('fala') + '</span><span><small>Mantra</small><strong class="mantra">“' + s.m + '”</strong></span></li></ol>' +
+      '<p class="nota">Não tem o chá ou o aroma? Pule essa etapa, ou use algo parecido que tiver em casa.</p>';
+  }
+  estados.forEach(function (s, k) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'opcao'; b.innerHTML = svg(s.i) + '<span>' + s.r + '</span>';
+    b.addEventListener('click', function () { mostrar(k); });
+    caixa.appendChild(b);
+  });
+  mostrar(2);
+
+  // Respiração da capa: o mesmo ritmo 4-2-4 do app.
+  var halo = document.getElementById('halo'), aro = document.getElementById('aro'), logo = document.getElementById('logo'), txt = document.getElementById('bola-txt'), num = document.getElementById('bola-num'), bt = document.getElementById('pausar');
+  var fases = [['Puxe o ar', 4, 1], ['Segure', 2, 1], ['Solte o ar', 4, 0]];
+  var parado = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, f = 0, n = 4, tm = null;
+  function aplica() {
+    var x = fases[f]; txt.textContent = x[0]; num.textContent = n;
+    halo.style.transform = 'scale(' + (x[2] ? 1.04 : .8) + ')';
+    aro.style.transform = 'scale(' + (x[2] ? 1.02 : .84) + ')';
+    logo.style.transform = 'scale(' + (x[2] ? 1.08 : 1) + ')';
+  }
+  function passo() {
+    n--;
+    if (n < 1) { f = (f + 1) % fases.length; n = fases[f][1]; aplica(); } else { num.textContent = n; }
+  }
+  function liga() { aplica(); tm = setInterval(passo, 1000); bt.textContent = 'Pausar a respiração'; }
+  function desliga() { clearInterval(tm); tm = null; bt.textContent = 'Continuar a respiração'; }
+  bt.addEventListener('click', function () { tm ? desliga() : liga(); });
+  if (parado) { desliga(); aplica(); } else { liga(); }
+
+  // Setas da galeria
+  var trilho = document.getElementById('trilho');
+  function rolar(d) { var g = trilho.querySelector('.tela'); trilho.scrollBy({ left: d * (g.offsetWidth + 30), behavior: parado ? 'auto' : 'smooth' }); }
+  document.getElementById('tela-ant').addEventListener('click', function () { rolar(-1); });
+  document.getElementById('tela-prox').addEventListener('click', function () { rolar(1); });
+})();
+</script>
 </body>
 </html>
