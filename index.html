@@ -135,6 +135,7 @@ p { margin:0; }
 .dias li { border-radius:16px; padding:12px 12px 14px; min-height:112px; display:grid; align-content:start; gap:4px; }
 .dias b { font-family:var(--titulo); font-size:25px; line-height:1; }
 .dias span { font-size:15.5px; line-height:1.22; font-weight:600; overflow-wrap:anywhere; hyphens:auto; }
+.dias .so-leitor { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; font-size:inherit; }
 .s1 li { background:var(--noite); color:var(--areia); }
 .s1 b { color:var(--ouro-claro); }
 .s2 li { background:#D4A359; color:var(--escuro); }
@@ -183,6 +184,7 @@ p { margin:0; }
 .iphone-grade { display:flex; flex-wrap:wrap; gap:22px 48px; align-items:center; justify-content:space-between; padding-block:clamp(38px,5vw,60px); }
 .iphone h2 { font-size:clamp(28px,4vw,42px); }
 .iphone p { max-width:52ch; margin-top:8px; }
+.iphone-acao a.email { color:var(--escuro); font-weight:700; display:inline-block; padding-block:9px; }
 .iphone-acao { display:grid; gap:10px; justify-items:start; font-size:16px; min-width:0; overflow-wrap:anywhere; }
 .aviso { padding-block:30px; }
 .aviso p { max-width:80ch; color:var(--escuro); font-size:17px; }
@@ -199,7 +201,7 @@ p { margin:0; }
 <body>
 <header class="barra faixa">
   <div class="miolo">
-    <a class="marca" href="#inicio"><img src="/imagens/logo.jpg" alt="" width="52" height="52">21 Dias para a Paz</a>
+    <a class="marca" href="#inicio" aria-label="21 Dias para a Paz, início"><img src="/imagens/logo.jpg" alt="" width="52" height="52">21 Dias para a Paz</a>
     <nav class="menu" aria-label="Seções"><a href="#experimente">Como funciona</a><a href="#telas">Telas</a><a href="#caminho">Os 21 dias</a><a href="#privacidade">Privacidade</a></nav>
     <a class="btn-ajuda" href="#ajuda">Preciso de ajuda</a>
   </div>
@@ -282,12 +284,12 @@ p { margin:0; }
       <p class="intro">O próximo dia abre à meia-noite. Se você parar por um tempo, ele continua aqui, sem cobrança.</p>
     </div>
     <div class="semanas">
-      <div class="semana s1"><h3>Semana 1: acalmar o corpo e a mente</h3><ol class="dias" start="1">
-        <li><b>1</b><span>A Arte da Pausa</span></li><li><b>2</b><span>A Respiração Consciente</span></li><li><b>3</b><span>Soltando o Controle</span></li><li><b>4</b><span>O Poder da Presença</span></li><li><b>5</b><span>A Desaceleração Física</span></li><li><b>6</b><span>A Mente Silenciosa</span></li><li><b>7</b><span>O Poder da Gratidão</span></li></ol></div>
-      <div class="semana s2"><h3>Semana 2: cuidar de como você se trata</h3><ol class="dias" start="8">
-        <li><b>8</b><span>O Limite Saudável</span></li><li><b>9</b><span>Perdão e Libertação</span></li><li><b>10</b><span>O Centro da Calma</span></li><li><b>11</b><span>A Autocompaixão</span></li><li><b>12</b><span>Silenciando o Juiz</span></li><li><b>13</b><span>Redirecionando o Foco</span></li><li><b>14</b><span>Soltando Expectativas</span></li></ol></div>
-      <div class="semana s3"><h3>Semana 3: firmar o que você construiu</h3><ol class="dias" start="15">
-        <li><b>15</b><span>Respiração Plena</span></li><li><b>16</b><span>Paz nas Relações</span></li><li><b>17</b><span>O Silêncio Restaurador</span></li><li><b>18</b><span>A Arte da Paciência</span></li><li><b>19</b><span>A Força do Recomeço</span></li><li><b>20</b><span>Consolidando a Paz</span></li><li><b>21</b><span>A Conquista da Paz</span></li></ol></div>
+      <div class="semana s1"><h3>Semana 1: acalmar o corpo e a mente</h3><ul class="dias" role="list">
+        <li><b><span class="so-leitor">Dia </span>1<span class="so-leitor">, </span></b><span>A Arte da Pausa</span></li><li><b><span class="so-leitor">Dia </span>2<span class="so-leitor">, </span></b><span>A Respiração Consciente</span></li><li><b><span class="so-leitor">Dia </span>3<span class="so-leitor">, </span></b><span>Soltando o Controle</span></li><li><b><span class="so-leitor">Dia </span>4<span class="so-leitor">, </span></b><span>O Poder da Presença</span></li><li><b><span class="so-leitor">Dia </span>5<span class="so-leitor">, </span></b><span>A Desaceleração Física</span></li><li><b><span class="so-leitor">Dia </span>6<span class="so-leitor">, </span></b><span>A Mente Silenciosa</span></li><li><b><span class="so-leitor">Dia </span>7<span class="so-leitor">, </span></b><span>O Poder da Gratidão</span></li></ul></div>
+      <div class="semana s2"><h3>Semana 2: cuidar de como você se trata</h3><ul class="dias" role="list">
+        <li><b><span class="so-leitor">Dia </span>8<span class="so-leitor">, </span></b><span>O Limite Saudável</span></li><li><b><span class="so-leitor">Dia </span>9<span class="so-leitor">, </span></b><span>Perdão e Libertação</span></li><li><b><span class="so-leitor">Dia </span>10<span class="so-leitor">, </span></b><span>O Centro da Calma</span></li><li><b><span class="so-leitor">Dia </span>11<span class="so-leitor">, </span></b><span>A Autocompaixão</span></li><li><b><span class="so-leitor">Dia </span>12<span class="so-leitor">, </span></b><span>Silenciando o Juiz</span></li><li><b><span class="so-leitor">Dia </span>13<span class="so-leitor">, </span></b><span>Redirecionando o Foco</span></li><li><b><span class="so-leitor">Dia </span>14<span class="so-leitor">, </span></b><span>Soltando Expectativas</span></li></ul></div>
+      <div class="semana s3"><h3>Semana 3: firmar o que você construiu</h3><ul class="dias" role="list">
+        <li><b><span class="so-leitor">Dia </span>15<span class="so-leitor">, </span></b><span>Respiração Plena</span></li><li><b><span class="so-leitor">Dia </span>16<span class="so-leitor">, </span></b><span>Paz nas Relações</span></li><li><b><span class="so-leitor">Dia </span>17<span class="so-leitor">, </span></b><span>O Silêncio Restaurador</span></li><li><b><span class="so-leitor">Dia </span>18<span class="so-leitor">, </span></b><span>A Arte da Paciência</span></li><li><b><span class="so-leitor">Dia </span>19<span class="so-leitor">, </span></b><span>A Força do Recomeço</span></li><li><b><span class="so-leitor">Dia </span>20<span class="so-leitor">, </span></b><span>Consolidando a Paz</span></li><li><b><span class="so-leitor">Dia </span>21<span class="so-leitor">, </span></b><span>A Conquista da Paz</span></li></ul></div>
     </div>
     <div class="pontas"><span><b>Antes:</b> Dia 0, Acolhimento e Boas-Vindas.</span><span><b>Depois:</b> Dia 22, O Abraço de Despedida, e a Prática livre, sempre que quiser.</span></div>
   </div>
@@ -314,7 +316,7 @@ p { margin:0; }
       </ul>
       <p class="decide">O app nunca liga nem envia nada sozinho. Quem decide é você.</p>
     </div>
-    <div class="ajuda-img"><img src="/imagens/ajuda.jpg" alt="Tela Preciso de ajuda do aplicativo" loading="lazy" width="600" height="1200"></div>
+    <div class="ajuda-img"><img src="/imagens/ajuda.jpg" alt="Tela Preciso de ajuda com pessoa de confiança, 188 e 192" loading="lazy" width="600" height="1200"></div>
   </div>
 </section>
 
@@ -353,7 +355,7 @@ p { margin:0; }
 <section class="iphone faixa" id="iphone">
   <div class="miolo iphone-grade">
     <div><h2>Usa iPhone?</h2><p>Por enquanto, o aplicativo é só para Android. Se você gostaria de ter no iPhone, escreva para nós. Seu pedido nos ajuda a decidir, e avisaremos você se a versão para iPhone sair.</p></div>
-    <div class="iphone-acao"><a class="btn escuro" href="mailto:21diasparaapaz@gmail.com?subject=Quero%20no%20iPhone&amp;body=Quero%20receber%20um%20aviso%20quando%20o%20app%20estiver%20dispon%C3%ADvel%20para%20iPhone.">Quero no iPhone</a><span>Ou escreva para 21diasparaapaz@gmail.com</span></div>
+    <div class="iphone-acao"><a class="btn escuro" href="mailto:21diasparaapaz@gmail.com?subject=Quero%20no%20iPhone&amp;body=Quero%20receber%20um%20aviso%20quando%20o%20app%20estiver%20dispon%C3%ADvel%20para%20iPhone.">Quero no iPhone</a><span>Ou escreva para <a class="email" href="mailto:21diasparaapaz@gmail.com?subject=Quero%20no%20iPhone">21diasparaapaz@gmail.com</a></span></div>
   </div>
 </section>
 
@@ -363,7 +365,7 @@ p { margin:0; }
 </main>
 
 <footer class="rodape faixa">
-  <div class="miolo"><span class="assina"><img src="/imagens/logo.jpg" alt="" width="72" height="72" loading="lazy">21 Dias para a Paz</span><nav aria-label="Rodapé"><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos de uso</a><span>21diasparaapaz@gmail.com</span></nav></div>
+  <div class="miolo"><span class="assina"><img src="/imagens/logo.jpg" alt="" width="72" height="72" loading="lazy">21 Dias para a Paz</span><nav aria-label="Rodapé"><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos de uso</a><a href="mailto:21diasparaapaz@gmail.com">21diasparaapaz@gmail.com</a></nav></div>
 </footer>
 
 <script>
