@@ -185,8 +185,15 @@ p { margin:0; }
 .iphone h2 { font-size:clamp(28px,4vw,42px); }
 .iphone p { max-width:52ch; margin-top:8px; }
 .iphone-acao a.email { color:var(--escuro); font-weight:700; display:inline-block; padding-block:9px; }
+.livro { background:var(--fundo); color:var(--corpo); }
+.livro-grade { display:flex; flex-wrap:wrap; gap:26px 48px; align-items:center; padding-block:clamp(38px,5vw,60px); }
+.livro-grade > div { flex:1 1 320px; min-width:0; }
+.livro-capa { width:clamp(140px,22vw,200px); height:auto; border-radius:6px; box-shadow:0 14px 34px rgba(51,42,21,.22); }
+.livro h2 { font-size:clamp(28px,4vw,42px); color:var(--escuro); }
+.livro p { max-width:52ch; margin-top:8px; }
+.livro-acao { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
 .iphone-acao { display:grid; gap:10px; justify-items:start; font-size:16px; min-width:0; overflow-wrap:anywhere; }
-.aviso { padding-block:30px; }
+.aviso { padding-block:30px; border-top:1px solid var(--card); }
 .aviso p { max-width:80ch; color:var(--escuro); font-size:17px; }
 .rodape { background:var(--noite); color:var(--areia2); padding-block:28px; font-size:16px; }
 .rodape .miolo { display:flex; flex-wrap:wrap; gap:10px 26px; justify-content:space-between; }
@@ -356,6 +363,20 @@ p { margin:0; }
   <div class="miolo iphone-grade">
     <div><h2>Usa iPhone?</h2><p>Por enquanto, o aplicativo é só para Android. Se você gostaria de ter no iPhone, escreva para nós. Seu pedido nos ajuda a decidir, e avisaremos você se a versão para iPhone sair.</p></div>
     <div class="iphone-acao"><a class="btn escuro" href="mailto:21diasparaapaz@gmail.com?subject=Quero%20no%20iPhone&amp;body=Quero%20receber%20um%20aviso%20quando%20o%20app%20estiver%20dispon%C3%ADvel%20para%20iPhone.">Quero no iPhone</a><span>Ou escreva para <a class="email" href="mailto:21diasparaapaz@gmail.com?subject=Quero%20no%20iPhone">21diasparaapaz@gmail.com</a></span></div>
+  </div>
+</section>
+
+<section class="livro faixa" id="livro">
+  <div class="miolo livro-grade">
+    <img class="livro-capa" src="/imagens/livro_por_que_sofremos_tanto.jpg?v=20261105" alt="Capa do livro Por Que Sofremos Tanto?, de Mauro JC" width="400" height="643" loading="lazy">
+    <div>
+      <h2>Um livro de quem criou o app</h2>
+      <p>Se quiser ir além do aplicativo, o idealizador do 21 Dias para a Paz, Mauro JC, escreveu <b>Por Que Sofremos Tanto?</b>, um livro sobre o sofrimento humano para quem quer entender melhor o que sente.</p>
+      <div class="livro-acao">
+        <a class="btn escuro" href="https://www.amazon.com.br/dp/B0HNTTFXR3" target="_blank" rel="noopener" aria-label="Livro digital, Kindle, na Amazon (abre em outro site)">Livro digital (Kindle) na Amazon</a>
+        <a class="btn escuro" href="https://loja.uiclap.com/titulo/ua219192" target="_blank" rel="noopener" aria-label="Livro impresso na Uiclap (abre em outro site)">Livro impresso na Uiclap</a>
+      </div>
+    </div>
   </div>
 </section>
 
